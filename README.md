@@ -12,7 +12,6 @@ RaceSync is a dynamic web application built with Next.js 15, providing real-time
 ## **Tech Stack**
 - **Frontend**: Next.js 15 (App Router), React, Tailwind CSS
 - **APIs**: OpenF1 API, Open-Meteo API
-- **State Management**: React Context, TanStack Query (for data fetching and caching)
 - **Styling**: Tailwind CSS
 - **Deployment**: Vercel
 
