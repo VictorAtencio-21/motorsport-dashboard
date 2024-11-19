@@ -4,6 +4,7 @@ import {
   SidebarTrigger,
   SidebarInset,
 } from "@/components/ui/sidebar";
+import { Separator } from "@/components/ui/separator";
 import { AppSidebar } from "@/components/navigation/app-sidebar";
 import "./globals.css";
 
@@ -31,7 +32,10 @@ export default async function RootLayout({ children }: PropsWithChildren) {
           />
           <SidebarInset>
             <main>
-              <SidebarTrigger />
+              <header className="absolute top-0 z-50 flex h-10 shrink-0 items-center gap-2 px-4 bg-transparent">
+                <SidebarTrigger className="text-white bg-secondary-dark" />
+                <Separator orientation="vertical" className="mr-2 h-4" />
+              </header>
               {children}
             </main>
           </SidebarInset>

@@ -20,19 +20,23 @@ import {
   SidebarMenuItem,
   SidebarGroup,
   SidebarGroupContent,
+  SidebarTrigger,
 } from "@/components/ui/sidebar";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const { constructors, drivers } = props;
-
-  console.log({ constructors, drivers });
+  const pathname = usePathname();
+  const actualRoute = pathname.split("/")[2];
 
   const data = {
     navMain: [
       {
         title: "Teams",
         url: "/en/teams",
+        isActive: actualRoute === "teams",
         icon: Users,
         items: constructors?.map((constructor) => ({
           title: constructor?.name,
@@ -42,6 +46,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       {
         title: "Drivers",
         url: "/en/drivers",
+        isActive: actualRoute === "drivers",
         icon: User,
         items: drivers?.map((driver) => ({
           title: `${driver.givenName} ${driver.familyName} (${driver.code})`,
@@ -58,15 +63,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             url: "#",
           },
           {
-            title: "Team",
-            url: "#",
-          },
-          {
-            title: "Billing",
-            url: "#",
-          },
-          {
-            title: "Limits",
+            title: "Units",
             url: "#",
           },
         ],
@@ -87,7 +84,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   };
 
   return (
-    <Sidebar variant="inset" {...props}>
+    <Sidebar variant="inset" collapsible="icon" {...props}>
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
@@ -117,18 +114,18 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             <SidebarMenu>
               <SidebarMenuItem>
                 <SidebarMenuButton asChild size="sm">
-                  <a href={"/en/home"}>
+                  <Link href={"/en/home"}>
                     <Home />
                     <span>Home</span>
-                  </a>
+                  </Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
                 <SidebarMenuButton asChild size="sm">
-                  <a href={"/en/schedule"}>
+                  <Link href={"/en/schedule"}>
                     <CalendarDays />
                     <span>Race Schedule</span>
-                  </a>
+                  </Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>

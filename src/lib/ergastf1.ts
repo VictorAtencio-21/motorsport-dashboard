@@ -1,10 +1,11 @@
 import { Constructor } from "./interfaces";
 
 const BASE_URL = process.env.NEXT_PUBLIC_ERGASF1_API as string;
+const Year = new Date().getFullYear();
 
 export const getContstructors = async (): Promise<Constructor[] | any> => {
   try {
-    const response = await fetch(`${BASE_URL}/2024/constructors.json`);
+    const response = await fetch(`${BASE_URL}/${Year}/constructors.json`);
     const clone = response.clone();
 
     try {
@@ -23,7 +24,7 @@ export const getContstructors = async (): Promise<Constructor[] | any> => {
 
 export const getDrivers = async (): Promise<any> => {
   try {
-    const response = await fetch(`${BASE_URL}/2024/drivers.json`);
+    const response = await fetch(`${BASE_URL}/${Year}/drivers.json`);
     const clone = response.clone();
 
     try {
