@@ -31,7 +31,7 @@ export default async function RootLayout({ children }: PropsWithChildren) {
             drivers={Drivers ?? []}
           />
           <SidebarInset>
-            <main>
+            <main className="h-full">
               <header className="absolute top-0 z-50 flex h-10 shrink-0 items-center gap-2 px-4 bg-transparent">
                 <SidebarTrigger className="text-white bg-secondary-dark" />
                 <Separator orientation="vertical" className="mr-2 h-4" />

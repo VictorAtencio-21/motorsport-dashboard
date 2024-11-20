@@ -20,7 +20,7 @@ export default function Slideshow() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 8000); // Change image every 8 seconds
+    }, 10000); // Change image every 8 seconds
     return () => clearInterval(interval);
   }, []);
 
@@ -29,7 +29,7 @@ export default function Slideshow() {
       {images.map((image, index) => (
         <div
           key={index}
-          className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${
+          className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in rounded-md brightness-[0.2] ${
             index === currentImageIndex ? "opacity-100" : "opacity-0"
           }`}
           style={{ backgroundImage: `url(${image})` }}
