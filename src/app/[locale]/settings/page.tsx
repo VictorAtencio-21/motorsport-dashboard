@@ -1,3 +1,9 @@
+export const metadata = {
+  title: "RaceSync - Settings",
+  description:
+    "RaceSync is a web application that provides information about the Formula 1 season, constructors and drivers.",
+};
+
 async function SettingsPage() {
   try {
     return (

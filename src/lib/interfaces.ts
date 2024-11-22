@@ -1,10 +1,3 @@
-interface Meeting {
-  id: number;
-  name: string;
-  date: string;
-  // Add other relevant fields
-}
-
 interface Constructor {
   constructorId: string;
   name: string;
@@ -21,5 +14,38 @@ interface Driver {
   nationality: string;
 }
 
+interface Location {
+  lat: string;
+  long: string;
+  locality: string;
+  country: string;
+}
+
+interface Circuit {
+  circuitId: string;
+  url: string;
+  circuitName: string;
+  Location: Location;
+}
+
+interface Session {
+  date: string;
+  time: string;
+}
+
+interface Schedule {
+  season: string;
+  round: string;
+  url: string;
+  raceName: string;
+  Circuit: Circuit;
+  date: string;
+  time: string;
+  FirstPractice: Session;
+  Qualifying: Session;
+  SecondPractice: Session;
+  Sprint: Session;
+}
+
 // export Meeting interface by module
-export type { Meeting, Constructor, Driver };
+export type { Constructor, Driver, Circuit, Location, Session, Schedule };

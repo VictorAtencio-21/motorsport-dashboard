@@ -1,5 +1,11 @@
 import Slideshow from "@/components/media/Slideshow";
 
+export const metadata = {
+  title: "RaceSync - Home",
+  description:
+    "RaceSync is a web application that provides information about the Formula 1 season, constructors and drivers.",
+};
+
 export default function HomePage() {
   return (
     <div className="relative w-full h-full overflow-hidden">
