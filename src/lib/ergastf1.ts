@@ -57,3 +57,22 @@ export const getCurrentSchedule = async () => {
     return error instanceof Error ? error : new Error(String(error));
   }
 };
+
+export const getSingleSchedule = async (id: string) => {
+  try {
+    const response = await fetch(`${BASE_URL}/${Year}/${id}.json`);
+    const clone = response.clone();
+
+    try {
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error("Error parsing schedule", error);
+      const text = await clone.text();
+      return text;
+    }
+  } catch (error) {
+    console.error("Error fetching schedule data", error);
+    return error instanceof Error ? error : new Error(String(error));
+  }
+}

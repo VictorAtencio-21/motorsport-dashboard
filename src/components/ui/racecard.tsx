@@ -9,7 +9,7 @@ import {
 } from "./card";
 import { Schedule } from "@/lib/interfaces";
 import Link from "next/link";
-import { Button } from "./button";
+import FlagComponent from "../media/FlagComponent";
 
 const RaceCard = (schedule: Schedule) => {
   const {
@@ -24,7 +24,10 @@ const RaceCard = (schedule: Schedule) => {
     <Link href={`schedule/${round}`}>
       <Card>
         <CardHeader>
-          <CardTitle>{raceName}</CardTitle>
+          <div className="flex justify-between items-center">
+            <CardTitle>{raceName}</CardTitle>
+            <FlagComponent country={Location.country} />
+          </div>
         </CardHeader>
         <CardContent>
           <CardDescription>
