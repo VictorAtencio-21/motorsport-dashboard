@@ -15,8 +15,6 @@ async function SchedulePage() {
       RaceTable: { Races },
     } = MRData;
 
-    console.log(JSON.stringify(Races, null, 2));
-
     return (
       <div className="container p-5">
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
