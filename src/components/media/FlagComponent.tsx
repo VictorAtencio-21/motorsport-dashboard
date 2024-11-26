@@ -3,15 +3,20 @@ import Image from "next/image";
 interface FlagComponentProps {
   country: string;
   className?: string;
+  size?: number;
 }
 
-const FlagComponent = ({ country, className }: FlagComponentProps) => {
+const FlagComponent = ({
+  country,
+  className,
+  size = 50,
+}: FlagComponentProps) => {
   return (
     <Image
       src={MatchFlagsWithCountry(country) || "/Logos/RaceSyncLogo.png"}
       alt={country}
-      width={50}
-      height={50}
+      width={size}
+      height={size}
       className={cn(className)}
     />
   );
