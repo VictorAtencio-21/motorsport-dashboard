@@ -53,3 +53,8 @@ export function MatchFlagsWithCountry(country: string) {
       return "/Flags/Qatar.svg";
   }
 }
+
+// format range of dates to a readable format: 2021-03-28 -> 28th March 2021
+const formatDate = (date: string) => {
+  
+};
